@@ -10,12 +10,13 @@ public class EnemyController : MonoBehaviour
     public Transform startPosition, endPosition;
     public float speed = 5;
     public int xDistance = 2;
+    [HideInInspector]
+    public bool playerDetected;
     NavMeshAgent agent;
     MeshCollider col;
     Vector3 initialPosition;
     Transform chaseTarget;
     ThirdPersonCharacter thirdPersonController;
-
     GameObject player;
     Animator anim;
     MasterManager gameManager;
@@ -38,30 +39,33 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (chaseTarget)
+        if (!playerDetected)
         {
-            agent.SetDestination(chaseTarget.position);
-        }
-        else
-        {
-
-            if (Vector3.Distance(transform.position, startPosition.position) < 0.5f)
+            if (chaseTarget)
             {
-                agent.SetDestination(endPosition.position);
+                agent.SetDestination(chaseTarget.position);
             }
-            else if (Vector3.Distance(transform.position, endPosition.position) < 0.5f)
+            else
             {
-                agent.SetDestination(startPosition.position);
-            }
-        }
 
-        if (agent.remainingDistance > agent.stoppingDistance)
-        {
-            thirdPersonController.Move(agent.desiredVelocity, false, false);
-        }
-        else
-        {
-            thirdPersonController.Move(Vector3.zero, false, false);
+                if (Vector3.Distance(transform.position, startPosition.position) < 0.5f)
+                {
+                    agent.SetDestination(endPosition.position);
+                }
+                else if (Vector3.Distance(transform.position, endPosition.position) < 0.5f)
+                {
+                    agent.SetDestination(startPosition.position);
+                }
+            }
+
+            if (agent.remainingDistance > agent.stoppingDistance)
+            {
+                thirdPersonController.Move(agent.desiredVelocity, false, false);
+            }
+            else
+            {
+                thirdPersonController.Move(Vector3.zero, false, false);
+            }
         }
 
         var nav = GetComponent<NavMeshAgent>();
@@ -94,6 +98,13 @@ public class EnemyController : MonoBehaviour
     public void SetChaseTarget()
     {
         anim.SetBool("DetectionTrigger", true);
+
+        // Stop Enemy movement
+        agent.isStopped = true;
+        playerDetected = true;
+        thirdPersonController.Move(Vector3.zero, false, false);
+
+        // Start restart
         gameManager.restartTrigger = true; //Set master manager trigger to restart game upon detection
                                            // chaseTarget = player.transform;
     }
@@ -101,6 +112,9 @@ public class EnemyController : MonoBehaviour
     // Restart enemy to its initial position and beahavior
     public void Restart()
     {
+        // Restart player
+        playerDetected = false;
+        agent.isStopped = false;
         transform.position = initialPosition; //Reset position to initial position
         chaseTarget = null; //Reset chase target
         anim.SetBool("DetectionTrigger", false);        // Play detection animation

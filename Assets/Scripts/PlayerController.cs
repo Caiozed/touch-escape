@@ -11,7 +11,10 @@ public class PlayerController : MonoBehaviour
     Vector3 initialPosition, initialCameraRotation;
     ThirdPersonCharacter thirdPersonController;
     Touch[] touches;
-    Animator anim;
+    [HideInInspector]
+    public Animator anim;
+    [HideInInspector]
+    public bool detected = false;
     // Use this for initialization
     void Start()
     {
@@ -27,38 +30,43 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Camera.main.transform.eulerAngles = initialCameraRotation;
-        // anim.SetFloat("Speed", agent.velocity.magnitude);
-        RaycastHit hit;
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            Ray touchRay = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-            if (Physics.Raycast(touchRay, out hit))
-            {
-                agent.SetDestination(hit.point);
-                touchEffect.transform.position = hit.point;
-                touchEffect.Play();
-            }
-        }
+        anim.SetBool("Detected", detected);
 
-        if (Input.GetMouseButtonDown(0))
+        if (!detected)
         {
-            Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(mouseRay, out hit))
+            // Camera.main.transform.eulerAngles = initialCameraRotation;
+            // anim.SetFloat("Speed", agent.velocity.magnitude);
+            RaycastHit hit;
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
-                agent.SetDestination(hit.point);
-                touchEffect.transform.position = hit.point;
-                touchEffect.Play();
+                Ray touchRay = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+                if (Physics.Raycast(touchRay, out hit))
+                {
+                    agent.SetDestination(hit.point);
+                    touchEffect.transform.position = hit.point;
+                    touchEffect.Play();
+                }
             }
-        }
 
-        if (agent.remainingDistance > agent.stoppingDistance)
-        {
-            thirdPersonController.Move(agent.desiredVelocity, false, false);
-        }
-        else
-        {
-            thirdPersonController.Move(Vector3.zero, false, false);
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(mouseRay, out hit))
+                {
+                    agent.SetDestination(hit.point);
+                    touchEffect.transform.position = hit.point;
+                    touchEffect.Play();
+                }
+            }
+
+            if (agent.remainingDistance > agent.stoppingDistance)
+            {
+                thirdPersonController.Move(agent.desiredVelocity, false, false);
+            }
+            else
+            {
+                thirdPersonController.Move(Vector3.zero, false, false);
+            }
         }
     }
 
@@ -67,5 +75,6 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = initialPosition;
         agent.SetDestination(initialPosition);
+        detected = false;
     }
 }
