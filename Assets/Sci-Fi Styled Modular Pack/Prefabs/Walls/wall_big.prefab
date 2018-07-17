@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3339048}
   - component: {fileID: 2378580}
   - component: {fileID: 6478192}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wall_big_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 3390086}
   - component: {fileID: 2314096}
   - component: {fileID: 6479478}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wall_big_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 497032}
   - component: {fileID: 6444258}
   - component: {fileID: 20520570}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: wall_big
   m_TagString: Untagged
   m_Icon: {fileID: 0}

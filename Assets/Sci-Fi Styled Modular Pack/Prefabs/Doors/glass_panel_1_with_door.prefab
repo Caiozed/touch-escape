@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3398946}
   - component: {fileID: 2341864}
   - component: {fileID: 6580822}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: glass_panel_1_door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 2331942}
   - component: {fileID: 9575016}
   - component: {fileID: 6452128}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: glass_panel_1_with_door
   m_TagString: Untagged
   m_Icon: {fileID: 0}

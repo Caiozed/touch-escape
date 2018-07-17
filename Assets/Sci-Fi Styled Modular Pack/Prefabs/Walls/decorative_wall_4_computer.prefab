@@ -10,7 +10,7 @@ GameObject:
   - component: {fileID: 411016}
   - component: {fileID: 6521048}
   - component: {fileID: 20522330}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: decorative_wall_4_computer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 410588}
   - component: {fileID: 3347874}
   - component: {fileID: 2340390}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: decorative_wall_4_computer_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 493140}
   - component: {fileID: 3351982}
   - component: {fileID: 2307016}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: decorative_wall_4_computer_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

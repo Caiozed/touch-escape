@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     public int xDistance = 2;
     [HideInInspector]
     public bool playerDetected;
+    public GameObject alertObject;
     NavMeshAgent agent;
     MeshCollider col;
     Vector3 initialPosition;
@@ -68,29 +69,29 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        var nav = GetComponent<NavMeshAgent>();
-        if (nav == null || nav.path == null)
-            return;
+        // var nav = GetComponent<NavMeshAgent>();
+        // if (nav == null || nav.path == null)
+        //     return;
 
-        var line = this.GetComponent<LineRenderer>();
-        if (line == null)
-        {
-            line = this.gameObject.AddComponent<LineRenderer>();
-            line.material = new Material(Shader.Find("Sprites/Default")) { color = Color.yellow };
-            line.startWidth = 0.2f;
-            line.endWidth = 0.2f;
-            line.startColor = Color.yellow;
-            line.endColor = Color.yellow;
-        }
+        // var line = this.GetComponent<LineRenderer>();
+        // if (line == null)
+        // {
+        //     line = this.gameObject.AddComponent<LineRenderer>();
+        //     line.material = new Material(Shader.Find("Sprites/Default")) { color = Color.yellow };
+        //     line.startWidth = 0.2f;
+        //     line.endWidth = 0.2f;
+        //     line.startColor = Color.yellow;
+        //     line.endColor = Color.yellow;
+        // }
 
-        var path = nav.path;
+        // var path = nav.path;
 
-        line.positionCount = path.corners.Length;
+        // line.positionCount = path.corners.Length;
 
-        for (int i = 0; i < path.corners.Length; i++)
-        {
-            line.SetPosition(i, path.corners[i]);
-        }
+        // for (int i = 0; i < path.corners.Length; i++)
+        // {
+        //     line.SetPosition(i, path.corners[i]);
+        // }
 
     }
 
@@ -99,6 +100,7 @@ public class EnemyController : MonoBehaviour
     {
         anim.SetBool("DetectionTrigger", true);
 
+        alertObject.SetActive(true);
         // Stop Enemy movement
         agent.isStopped = true;
         playerDetected = true;
@@ -114,6 +116,8 @@ public class EnemyController : MonoBehaviour
     {
         // Restart player
         playerDetected = false;
+
+        alertObject.SetActive(false);
         agent.isStopped = false;
         transform.position = initialPosition; //Reset position to initial position
         chaseTarget = null; //Reset chase target

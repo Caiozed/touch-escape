@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3335788}
   - component: {fileID: 2381388}
   - component: {fileID: 6435942}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: glass_panel_1_corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ public class MasterManager : MonoBehaviour
     PlayerController playerController;
     EnemyController[] enemiesControllers;
     [HideInInspector]
-    public bool restartTrigger;
+    public bool restartTrigger = false;
     // Use this for initialization
     void Start()
     {

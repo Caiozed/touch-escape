@@ -82,8 +82,10 @@
      <Compile Include="Assets\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Scripts\FieldOfView.cs" />
      <Compile Include="Assets\Scripts\GroundObstacle.cs" />
+     <Compile Include="Assets\Scripts\InteractTrigger.cs" />
      <Compile Include="Assets\Scripts\MasterManager.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\Rotator.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonCharacter.cs" />
      <Compile Include="Assets\Scripts\TriggerDetection.cs" />
      <Compile Include="Assets\UETools\Magic_Particle_Effects\Scripts\CameraMovement.cs" />
@@ -121,11 +123,11 @@
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_ScrollHighlight.shader" />
      <None Include="Assets\ProCore\ProBuilder\readme.txt" />
      <None Include="Assets\ProCore\ProBuilder\Shader\pb_SmoothingPreview.shader" />
- <Reference Include="Unity.PackageManagerUI.Editor">
- <HintPath>C:/Users/Caio/Documents/UnityProjects/Touch Escape/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
- </Reference>
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Caio/Documents/UnityProjects/Touch Escape/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.PackageManagerUI.Editor">
+ <HintPath>C:/Users/Caio/Documents/UnityProjects/Touch Escape/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

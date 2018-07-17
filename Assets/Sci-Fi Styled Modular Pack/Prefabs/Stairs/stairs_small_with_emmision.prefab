@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3394420}
   - component: {fileID: 2360408}
   - component: {fileID: 6421214}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: stairs_small_with_emmision
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -54,8 +54,10 @@ public class FieldOfView : MonoBehaviour {
 			Vector3 dirToTarget = (target.position - transform.position).normalized;
 			if (Vector3.Angle (transform.forward, dirToTarget) < viewAngle / 2) {
 				float dstToTarget = Vector3.Distance (transform.position, target.position);
-				if (!Physics.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask)) {
+				if (!Physics.Raycast (transform.position+new Vector3(0,.5f,0), dirToTarget, dstToTarget, obstacleMask)) {
 					visibleTargets.Add (target);
+								Debug.Log("in");
+
 					triggerDetection.onTrigger.Invoke();
 				}
 			}
@@ -141,7 +143,7 @@ public class FieldOfView : MonoBehaviour {
 		Vector3 dir = DirFromAngle (globalAngle, true);
 		RaycastHit hit;
 
-		if (Physics.Raycast (transform.position, dir, out hit, viewRadius, obstacleMask)) {
+		if (Physics.Raycast (transform.position+new Vector3(0,.5f,0), dir, out hit, viewRadius, obstacleMask)) {
 			return new ViewCastInfo (true, hit.point, hit.distance, globalAngle);
 		} else {
 			return new ViewCastInfo (false, transform.position + dir * viewRadius, viewRadius, globalAngle);

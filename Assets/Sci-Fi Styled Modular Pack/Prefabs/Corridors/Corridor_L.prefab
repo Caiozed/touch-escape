@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 447380}
   - component: {fileID: 3390556}
   - component: {fileID: 2368756}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor_2_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 474378}
   - component: {fileID: 3375262}
   - component: {fileID: 2393926}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor_2_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 444764}
   - component: {fileID: 6532934}
   - component: {fileID: 20501832}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor_2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 463520}
   - component: {fileID: 6528180}
   - component: {fileID: 20546362}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor_2_no_lattice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 3314446}
   - component: {fileID: 2306084}
   - component: {fileID: 6514390}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 470326}
   - component: {fileID: 6590858}
   - component: {fileID: 20576934}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor_2_no_lattice (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 411316}
   - component: {fileID: 3380092}
   - component: {fileID: 2350708}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor_2_no_lattice_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 469242}
   - component: {fileID: 3329732}
   - component: {fileID: 2310206}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor_2_no_lattice_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 464910}
   - component: {fileID: 3348510}
   - component: {fileID: 2367636}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor_2_no_lattice_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 421512}
   - component: {fileID: 6573064}
   - component: {fileID: 20567556}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 476866}
   - component: {fileID: 3337686}
   - component: {fileID: 2301000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor_2_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 408362}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Corridor_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -572,7 +572,7 @@ GameObject:
   - component: {fileID: 472806}
   - component: {fileID: 3352656}
   - component: {fileID: 2376858}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor_2_no_lattice_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 429688}
   - component: {fileID: 3368082}
   - component: {fileID: 2307250}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor_2_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -639,7 +639,7 @@ GameObject:
   - component: {fileID: 3395940}
   - component: {fileID: 2363358}
   - component: {fileID: 6525426}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor_5 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,11 +10,12 @@ public class PlayerController : MonoBehaviour
     public ParticleSystem touchEffect;
     Vector3 initialPosition, initialCameraRotation;
     ThirdPersonCharacter thirdPersonController;
+    InteractTrigger interactionTrigger;
     Touch[] touches;
     [HideInInspector]
     public Animator anim;
     [HideInInspector]
-    public bool detected = false;
+    public bool detected = false, isNearInteractable = false;
     // Use this for initialization
     void Start()
     {
@@ -31,31 +32,40 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         anim.SetBool("Detected", detected);
+        Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
 
         if (!detected)
         {
             // Camera.main.transform.eulerAngles = initialCameraRotation;
             // anim.SetFloat("Speed", agent.velocity.magnitude);
-            RaycastHit hit;
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 Ray touchRay = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+
                 if (Physics.Raycast(touchRay, out hit))
                 {
-                    agent.SetDestination(hit.point);
-                    touchEffect.transform.position = hit.point;
-                    touchEffect.Play();
+                    if(hit.transform.CompareTag("Interactable") && isNearInteractable){
+                        interactionTrigger.TriggerEvent.Invoke();
+                    }else{
+                        agent.SetDestination(hit.point);
+                        touchEffect.transform.position = hit.point;
+                        touchEffect.Play();
+                    }
                 }
             }
 
             if (Input.GetMouseButtonDown(0))
             {
-                Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(mouseRay, out hit))
                 {
-                    agent.SetDestination(hit.point);
-                    touchEffect.transform.position = hit.point;
-                    touchEffect.Play();
+                    if(hit.transform.CompareTag("Interactable") && isNearInteractable){
+                        interactionTrigger.TriggerEvent.Invoke();
+                    }else{
+                        agent.SetDestination(hit.point);
+                        touchEffect.transform.position = hit.point;
+                        touchEffect.Play();
+                    }
                 }
             }
 
@@ -76,5 +86,27 @@ public class PlayerController : MonoBehaviour
         transform.position = initialPosition;
         agent.SetDestination(initialPosition);
         detected = false;
+    }
+
+
+    void OnTriggerEnter(Collider other) {
+        // Set interactable reference when near
+        if(other.CompareTag("Interactable")){
+            isNearInteractable = true;
+            interactionTrigger = other.gameObject.GetComponent<InteractTrigger>();
+            interactionTrigger.isPlayerNear = true;
+            Debug.Log(isNearInteractable);
+        }
+    }
+
+     void OnTriggerExit(Collider other) {
+        //  Destroy interactable reference when too far
+        if(other.CompareTag("Interactable")){
+            interactionTrigger.isPlayerNear = false;
+            isNearInteractable = false;
+            interactionTrigger = null;
+            Debug.Log(isNearInteractable);
+
+        }
     }
 }
