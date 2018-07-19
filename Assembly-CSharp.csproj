@@ -84,6 +84,7 @@
      <Compile Include="Assets\Scripts\GroundObstacle.cs" />
      <Compile Include="Assets\Scripts\InteractTrigger.cs" />
      <Compile Include="Assets\Scripts\MasterManager.cs" />
+     <Compile Include="Assets\Scripts\PickupController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Rotator.cs" />
      <Compile Include="Assets\Scripts\ThirdPersonCharacter.cs" />

@@ -6,6 +6,7 @@ using UnityEngine;
 public class MasterManager : MonoBehaviour
 {
     public Image fadeImage;
+    public Image[] batteryIcons;
     Animator anim;
     GameObject[] enemiesObjects;
     GameObject player;
@@ -29,11 +30,14 @@ public class MasterManager : MonoBehaviour
             enemiesControllers[i] = (enemiesObjects[i].GetComponent<EnemyController>());
         }
 
+       
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        DrawBattery();
         if (restartTrigger)
         {
             StartCoroutine("Restart");
@@ -60,5 +64,18 @@ public class MasterManager : MonoBehaviour
         fadeImage.CrossFadeAlpha(0, 2.0f, false);
         playerController.Restart();
         restartTrigger = false;
+    }
+
+    void DrawBattery(){
+         for (int i = 0; i < batteryIcons.Length; i++)
+        {
+            batteryIcons[i].enabled = false;
+        }
+
+         // Handle battery itens
+         for (int i = 0; i < playerController.battery; i++)
+        {
+            batteryIcons[i].enabled = true;
+        }
     }
 }

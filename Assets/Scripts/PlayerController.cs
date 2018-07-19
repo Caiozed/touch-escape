@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     NavMeshAgent agent;
     public ParticleSystem touchEffect;
+    public int battery = 3;
     Vector3 initialPosition, initialCameraRotation;
     ThirdPersonCharacter thirdPersonController;
     InteractTrigger interactionTrigger;
@@ -45,9 +46,21 @@ public class PlayerController : MonoBehaviour
 
                 if (Physics.Raycast(touchRay, out hit))
                 {
-                    if(hit.transform.CompareTag("Interactable") && isNearInteractable){
-                        interactionTrigger.TriggerEvent.Invoke();
-                    }else{
+                    if (hit.transform.CompareTag("Interactable") && isNearInteractable)
+                    {
+                        if (interactionTrigger.interactionCost <= battery && interactionTrigger.interactable)
+                        {
+                            interactionTrigger.TriggerEvent.Invoke();
+                            battery -= interactionTrigger.interactionCost;
+                            interactionTrigger.interactable = false;
+                        }
+                        else if(interactionTrigger.interactable && interactionTrigger.interactionCost >= battery)
+                        {
+                            interactionTrigger.anim.SetTrigger("BatteryNotEnough");
+                        }
+                    }
+                    else
+                    {
                         agent.SetDestination(hit.point);
                         touchEffect.transform.position = hit.point;
                         touchEffect.Play();
@@ -59,9 +72,21 @@ public class PlayerController : MonoBehaviour
             {
                 if (Physics.Raycast(mouseRay, out hit))
                 {
-                    if(hit.transform.CompareTag("Interactable") && isNearInteractable){
-                        interactionTrigger.TriggerEvent.Invoke();
-                    }else{
+                    if (hit.transform.CompareTag("Interactable") && isNearInteractable)
+                    {
+                        if (interactionTrigger.interactionCost <= battery && interactionTrigger.interactable)
+                        {
+                            interactionTrigger.TriggerEvent.Invoke();
+                            battery -= interactionTrigger.interactionCost;
+                            interactionTrigger.interactable = false;
+                        }
+                        else if(interactionTrigger.interactable && interactionTrigger.interactionCost >= battery)
+                        {
+                            interactionTrigger.anim.SetTrigger("BatteryNotEnough");
+                        }
+                    }
+                    else
+                    {
                         agent.SetDestination(hit.point);
                         touchEffect.transform.position = hit.point;
                         touchEffect.Play();
@@ -89,9 +114,11 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    void OnTriggerEnter(Collider other) {
+    void OnTriggerEnter(Collider other)
+    {
         // Set interactable reference when near
-        if(other.CompareTag("Interactable")){
+        if (other.CompareTag("Interactable"))
+        {
             isNearInteractable = true;
             interactionTrigger = other.gameObject.GetComponent<InteractTrigger>();
             interactionTrigger.isPlayerNear = true;
@@ -99,9 +126,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-     void OnTriggerExit(Collider other) {
+    void OnTriggerExit(Collider other)
+    {
         //  Destroy interactable reference when too far
-        if(other.CompareTag("Interactable")){
+        if (other.CompareTag("Interactable"))
+        {
             interactionTrigger.isPlayerNear = false;
             isNearInteractable = false;
             interactionTrigger = null;
