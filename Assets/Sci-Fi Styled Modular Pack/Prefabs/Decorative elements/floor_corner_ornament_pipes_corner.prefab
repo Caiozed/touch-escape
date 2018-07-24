@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3389738}
   - component: {fileID: 2398648}
   - component: {fileID: 6517652}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: floor_corner_ornament_pipes_corner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3328278}
   - component: {fileID: 2300932}
   - component: {fileID: 6430656}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: console_celing
   m_TagString: Untagged
   m_Icon: {fileID: 0}

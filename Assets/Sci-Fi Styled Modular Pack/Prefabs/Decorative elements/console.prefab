@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 65305134258015846}
   - component: {fileID: 95182908897143238}
   - component: {fileID: 120461165664649866}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: console
   m_TagString: Interactable
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 224848698417296234}
   - component: {fileID: 222556943876997196}
   - component: {fileID: 114231836307054186}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 223112427102004454}
   - component: {fileID: 114346004619879570}
   - component: {fileID: 114491624956317980}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 224479198064229578}
   - component: {fileID: 222291047193492312}
   - component: {fileID: 114134692895054412}
-  m_Layer: 11
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}

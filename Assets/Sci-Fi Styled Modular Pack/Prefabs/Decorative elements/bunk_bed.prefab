@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3368020}
   - component: {fileID: 2317236}
   - component: {fileID: 6410028}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bunk_bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

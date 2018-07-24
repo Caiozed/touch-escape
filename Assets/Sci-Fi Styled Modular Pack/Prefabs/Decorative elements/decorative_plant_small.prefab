@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3311300}
   - component: {fileID: 2384508}
   - component: {fileID: 6565158}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: decorative_plant_small
   m_TagString: Untagged
   m_Icon: {fileID: 0}

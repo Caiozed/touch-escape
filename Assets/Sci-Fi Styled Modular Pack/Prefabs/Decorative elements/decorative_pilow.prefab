@@ -10,7 +10,7 @@ GameObject:
   - component: {fileID: 404062}
   - component: {fileID: 3318074}
   - component: {fileID: 2376274}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: decorative_pilow_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 439762}
   - component: {fileID: 3377742}
   - component: {fileID: 2317014}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: decorative_pilow_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 452766}
   - component: {fileID: 6586278}
   - component: {fileID: 20544476}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: decorative_pilow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

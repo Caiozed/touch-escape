@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     InteractTrigger interactionTrigger;
     Touch[] touches;
     [HideInInspector]
+    public List<string> keys;
+    [HideInInspector]
     public Animator anim;
     [HideInInspector]
     public bool detected = false, isNearInteractable = false;

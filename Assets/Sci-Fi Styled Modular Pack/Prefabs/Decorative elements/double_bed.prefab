@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3389750}
   - component: {fileID: 2305556}
   - component: {fileID: 6553264}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: double_bed
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   - component: {fileID: 416084}
   - component: {fileID: 3376766}
   - component: {fileID: 2358854}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: decorative_chair_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 486698}
   - component: {fileID: 6482166}
   - component: {fileID: 20563618}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: decorative_chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 436440}
   - component: {fileID: 3305602}
   - component: {fileID: 2350354}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: decorative_chair_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

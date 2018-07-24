@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3342846}
   - component: {fileID: 2332080}
   - component: {fileID: 6579042}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bulletin_board_small
   m_TagString: Untagged
   m_Icon: {fileID: 0}

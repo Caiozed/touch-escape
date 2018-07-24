@@ -10,7 +10,7 @@ GameObject:
   - component: {fileID: 496360}
   - component: {fileID: 3370452}
   - component: {fileID: 2393876}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: decorative_sofa_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   - component: {fileID: 481402}
   - component: {fileID: 3317080}
   - component: {fileID: 2313494}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: decorative_sofa_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 422434}
   - component: {fileID: 6490866}
   - component: {fileID: 20523856}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: decorative_sofa
   m_TagString: Untagged
   m_Icon: {fileID: 0}

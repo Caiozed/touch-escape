@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3372684}
   - component: {fileID: 2361056}
   - component: {fileID: 6434562}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: cabinet_L_cutted
   m_TagString: Untagged
   m_Icon: {fileID: 0}

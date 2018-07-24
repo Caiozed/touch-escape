@@ -7,6 +7,13 @@ public class PickupController : MonoBehaviour
 
     PlayerController player;
     public int battery = 1;
+    public enum KeyColor
+    {
+        Red,
+        Blue,
+        Yellow
+    };
+    public KeyColor keyColor;
     // Use this for initialization
     void Start()
     {
@@ -18,8 +25,8 @@ public class PickupController : MonoBehaviour
     {
 
     }
-	
-	// Add battery to player 
+
+    // Add battery to player 
     public void AddBattery()
     {
         if (player.battery < 3)
@@ -27,5 +34,15 @@ public class PickupController : MonoBehaviour
             player.battery += battery;
             Destroy(this.gameObject);
         }
+    }
+
+    // Add Key to player inventory
+    public void AddKey()
+    {
+        if(!player.keys.Contains(keyColor.ToString())){
+            player.keys.Add(keyColor.ToString());
+            Destroy(this.gameObject);
+            Debug.Log(player.keys);
+        };
     }
 }
