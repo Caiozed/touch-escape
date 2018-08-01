@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Editor\FieldOfViewEditor.cs" />
+     <Compile Include="Assets\Editor\PathGeneratorEditor.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\About\Editor\pb_AboutWindow.cs" />
      <Compile Include="Assets\ProCore\ProBuilder\About\Editor\pb_UpdateAvailable.cs" />

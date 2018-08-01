@@ -50,20 +50,20 @@ public class MasterManager : MonoBehaviour
 		Color color = new Color(0,0,0,0.01f);
 
 		fadeImage.color = color;
-		fadeImage.CrossFadeAlpha(255f, 2f, false);
+		fadeImage.CrossFadeAlpha(255f, 1f, false);
 
         playerController.detected = true;
 
-        yield return new WaitForSeconds(2);
-
+        yield return new WaitForSeconds(1);
+        
         for (int i = 0; i < enemiesControllers.Length; i++)
         {
             enemiesControllers[i].Restart();
         }
 
-        fadeImage.CrossFadeAlpha(0, 2.0f, false);
-        playerController.Restart();
+        fadeImage.CrossFadeAlpha(0, 1.0f, false);
         restartTrigger = false;
+        playerController.Restart();
     }
 
     void DrawBattery(){

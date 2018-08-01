@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33427240605146666}
   - component: {fileID: 23545621624147356}
   - component: {fileID: 65200318547816014}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: light_wall_3_blue (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4865002171318854}
   - component: {fileID: 33484853270785736}
   - component: {fileID: 23947017019485706}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 33017809702799638}
   - component: {fileID: 23683340134400086}
   - component: {fileID: 65735397719055770}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: light_wall_3_blue (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 114870540425773490}
   - component: {fileID: 65308404173147230}
   - component: {fileID: 65109644477184614}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LightBarrierYellow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4062742192696812}
   - component: {fileID: 108133196378584206}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1584983191603568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7, y: 0, z: -10}
+  m_LocalPosition: {x: -16.5, y: 4, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4803227637658320}

@@ -7,20 +7,21 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class EnemyController : MonoBehaviour
 {
 
-    public Transform startPosition, endPosition;
     public float speed = 5;
     public int xDistance = 2;
     [HideInInspector]
     public bool playerDetected;
     public GameObject alertObject;
+    Vector3 nextPosition, initialPosition;
+    List<Transform> positions;
     NavMeshAgent agent;
     MeshCollider col;
-    Vector3 initialPosition;
     Transform chaseTarget;
     ThirdPersonCharacter thirdPersonController;
     GameObject player;
     Animator anim;
     MasterManager gameManager;
+    int posIndex = 0;
     // Use this for initialization
     void Start()
     {
@@ -28,13 +29,15 @@ public class EnemyController : MonoBehaviour
         col = GetComponentInChildren<MeshCollider>();
         thirdPersonController = GetComponent<ThirdPersonCharacter>();
 
-        agent.SetDestination(startPosition.position);
         anim = GetComponentInChildren<Animator>();
         agent.updateRotation = false;
 
         gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<MasterManager>();
         player = GameObject.FindGameObjectWithTag("Player");
+        positions = GetComponentInParent<PathGenerator>().Positions;
         initialPosition = transform.position;
+
+        NextPosition();
     }
 
     // Update is called once per frame
@@ -48,14 +51,9 @@ public class EnemyController : MonoBehaviour
             }
             else
             {
-
-                if (Vector3.Distance(transform.position, startPosition.position) < 0.5f)
+                if (Vector3.Distance(transform.position, nextPosition) < 0.5f)
                 {
-                    agent.SetDestination(endPosition.position);
-                }
-                else if (Vector3.Distance(transform.position, endPosition.position) < 0.5f)
-                {
-                    agent.SetDestination(startPosition.position);
+                   NextPosition();
                 }
             }
 
@@ -95,6 +93,22 @@ public class EnemyController : MonoBehaviour
 
     }
 
+    // Moves enemy to nextPosition on list
+    void NextPosition(){
+        if(positions.Count > 0){
+            // Set next position to move
+            nextPosition = positions[posIndex].position;
+            agent.SetDestination(nextPosition);
+            posIndex++;
+
+            // Reverse direction if arrived at last position available
+            if(posIndex > positions.Count-1){
+                positions.Reverse();
+                posIndex = 0;
+            }
+        }   
+    }
+
     // Tell enemy to chase player
     public void SetChaseTarget()
     {
@@ -120,6 +134,7 @@ public class EnemyController : MonoBehaviour
         alertObject.SetActive(false);
         agent.isStopped = false;
         transform.position = initialPosition; //Reset position to initial position
+        posIndex = 0; //Reset position Index
         chaseTarget = null; //Reset chase target
         anim.SetBool("DetectionTrigger", false);        // Play detection animation
     }

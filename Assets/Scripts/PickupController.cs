@@ -23,7 +23,6 @@ public class PickupController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     // Add battery to player 
@@ -32,7 +31,7 @@ public class PickupController : MonoBehaviour
         if (player.battery < 3)
         {
             player.battery += battery;
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 
@@ -41,8 +40,8 @@ public class PickupController : MonoBehaviour
     {
         if(!player.keys.Contains(keyColor.ToString())){
             player.keys.Add(keyColor.ToString());
-            Destroy(this.gameObject);
-            Debug.Log(player.keys);
+            this.gameObject.SetActive(false);
+            player.initialPosition = transform.position;
         };
     }
 }

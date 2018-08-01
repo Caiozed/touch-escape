@@ -15,7 +15,7 @@ public class DoorControler : MonoBehaviour {
 		
 	}
 
-	void OnTriggerEnter(Collider other){
+	void OnTriggerStay(Collider other){
 		if(other.CompareTag("Enemy") || other.CompareTag("Player")){
 			Debug.Log("TEste");
 			Open();

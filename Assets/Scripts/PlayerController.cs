@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour
     NavMeshAgent agent;
     public ParticleSystem touchEffect;
     public int battery = 3;
-    Vector3 initialPosition, initialCameraRotation;
+    [HideInInspector]
+    public Vector3 initialPosition, initialCameraRotation;
     ThirdPersonCharacter thirdPersonController;
     InteractTrigger interactionTrigger;
     Touch[] touches;
@@ -18,7 +19,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public Animator anim;
     [HideInInspector]
-    public bool detected = false, isNearInteractable = false;
+    public bool detected = false, isNearInteractable = false, levelFinished = false;
     // Use this for initialization
     void Start()
     {
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (!detected)
+        if (!detected && !levelFinished)
         {
             // Camera.main.transform.eulerAngles = initialCameraRotation;
             // anim.SetFloat("Speed", agent.velocity.magnitude);
@@ -105,6 +106,11 @@ public class PlayerController : MonoBehaviour
                 thirdPersonController.Move(Vector3.zero, false, false);
             }
         }
+
+        if(levelFinished){
+            agent.speed = 0;
+            thirdPersonController.Move(Vector3.zero, false, false);
+        }
     }
 
     // Restart player to last checkpoint
@@ -112,6 +118,7 @@ public class PlayerController : MonoBehaviour
     {
         transform.position = initialPosition;
         agent.SetDestination(initialPosition);
+        agent.ResetPath();
         detected = false;
     }
 
@@ -124,7 +131,6 @@ public class PlayerController : MonoBehaviour
             isNearInteractable = true;
             interactionTrigger = other.gameObject.GetComponent<InteractTrigger>();
             interactionTrigger.isPlayerNear = true;
-            Debug.Log(isNearInteractable);
         }
     }
 
@@ -136,8 +142,6 @@ public class PlayerController : MonoBehaviour
             interactionTrigger.isPlayerNear = false;
             isNearInteractable = false;
             interactionTrigger = null;
-            Debug.Log(isNearInteractable);
-
         }
     }
 }
