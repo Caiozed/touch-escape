@@ -53,6 +53,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\EZ Camera Shake\Demo\Sample Scripts\ShakeByDistance.cs" />
+     <Compile Include="Assets\EZ Camera Shake\Demo\Sample Scripts\ShakeOnKeyPress.cs" />
+     <Compile Include="Assets\EZ Camera Shake\Demo\Sample Scripts\ShakeOnTrigger.cs" />
+     <Compile Include="Assets\EZ Camera Shake\Demo\ShakeDemo.cs" />
+     <Compile Include="Assets\EZ Camera Shake\Scripts\CameraShakeInstance.cs" />
+     <Compile Include="Assets\EZ Camera Shake\Scripts\CameraShakePresets.cs" />
+     <Compile Include="Assets\EZ Camera Shake\Scripts\CameraShaker.cs" />
+     <Compile Include="Assets\EZ Camera Shake\Scripts\Utilities\CameraUtilities.cs" />
      <Compile Include="Assets\FastMobileBloom\FastMobileBloom.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_New.cs" />
@@ -84,6 +92,7 @@
      <Compile Include="Assets\Scripts\GroundObstacle.cs" />
      <Compile Include="Assets\Scripts\InteractTrigger.cs" />
      <Compile Include="Assets\Scripts\LevelCompleter.cs" />
+     <Compile Include="Assets\Scripts\LoadingManager.cs" />
      <Compile Include="Assets\Scripts\MasterManager.cs" />
      <Compile Include="Assets\Scripts\PathGenerator.cs" />
      <Compile Include="Assets\Scripts\PickupController.cs" />

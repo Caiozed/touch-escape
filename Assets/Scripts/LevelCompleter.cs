@@ -19,5 +19,6 @@ public class LevelCompleter : MonoBehaviour {
 		currentImage.color = Color.green;
 		currentImage.sprite = successImage;
 		player.levelFinished = true;
+		LoadingManager.LoadLevel(LoadingManager.CurrentLevel()+1);
 	}
 }

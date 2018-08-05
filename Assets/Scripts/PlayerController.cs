@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 initialPosition, initialCameraRotation;
     ThirdPersonCharacter thirdPersonController;
     InteractTrigger interactionTrigger;
+    MasterManager masterManager;
     Touch[] touches;
     [HideInInspector]
     public List<string> keys;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         thirdPersonController = GetComponent<ThirdPersonCharacter>();
+        masterManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<MasterManager>();
         agent.updateRotation = false;
         // agent.updatePosition = false;
         initialPosition = transform.position;
@@ -39,7 +41,7 @@ public class PlayerController : MonoBehaviour
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
-        if (!detected && !levelFinished)
+        if (!detected && !levelFinished && !masterManager.gameOver)
         {
             // Camera.main.transform.eulerAngles = initialCameraRotation;
             // anim.SetFloat("Speed", agent.velocity.magnitude);
@@ -57,7 +59,7 @@ public class PlayerController : MonoBehaviour
                             battery -= interactionTrigger.interactionCost;
                             interactionTrigger.interactable = false;
                         }
-                        else if(interactionTrigger.interactable && interactionTrigger.interactionCost >= battery)
+                        else if (interactionTrigger.interactable && interactionTrigger.interactionCost >= battery)
                         {
                             interactionTrigger.anim.SetTrigger("BatteryNotEnough");
                         }
@@ -83,7 +85,7 @@ public class PlayerController : MonoBehaviour
                             battery -= interactionTrigger.interactionCost;
                             interactionTrigger.interactable = false;
                         }
-                        else if(interactionTrigger.interactable && interactionTrigger.interactionCost >= battery)
+                        else if (interactionTrigger.interactable && interactionTrigger.interactionCost >= battery)
                         {
                             interactionTrigger.anim.SetTrigger("BatteryNotEnough");
                         }
@@ -106,8 +108,13 @@ public class PlayerController : MonoBehaviour
                 thirdPersonController.Move(Vector3.zero, false, false);
             }
         }
+        else
+        {
+            agent.ResetPath();
+        }
 
-        if(levelFinished){
+        if (levelFinished)
+        {
             agent.speed = 0;
             thirdPersonController.Move(Vector3.zero, false, false);
         }
