@@ -241,7 +241,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1558226499244172}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.5, y: 6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4927302926368220}
@@ -270,7 +270,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1304758376787906}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 11, y: 9, z: -10}
+  m_LocalPosition: {x: 0, y: 9.5, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4034000874276736}
@@ -362,7 +362,7 @@ MonoBehaviour:
   - {fileID: 114286152706570630}
   - {fileID: 114744091392901390}
   - {fileID: 114969634272197208}
-  minutesToFinish: 1
+  minutesToFinish: 10
   displayTime: {fileID: 114707747843745556}
   gameOverEffect: {fileID: 1455008646795430, guid: 1b2bf2a7afb26534da2046ccfbcfb3b6,
     type: 2}
@@ -436,8 +436,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threshold: 0.401
-  intensity: 0.44
-  blurSize: 1
+  intensity: 0.91
+  blurSize: 1.1
   blurIterations: 2
   fastBloomMaterial: {fileID: 2100000, guid: 221340b8b5ad10940ba1646f87e3770c, type: 2}
 --- !u!114 &114571326783269196
@@ -506,7 +506,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: a84fa5ff70484e946bea93bd3c236e52, type: 3}
     m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
