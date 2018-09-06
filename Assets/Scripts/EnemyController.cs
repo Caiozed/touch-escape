@@ -22,13 +22,15 @@ public class EnemyController : MonoBehaviour
     Animator anim;
     MasterManager gameManager;
     int posIndex = 0;
+    bool isAudioPlaying;
+    AudioSource detectionSound;
     // Use this for initialization
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         col = GetComponentInChildren<MeshCollider>();
         thirdPersonController = GetComponent<ThirdPersonCharacter>();
-
+        detectionSound = GetComponent<AudioSource>();
         anim = GetComponentInChildren<Animator>();
         agent.updateRotation = false;
 
@@ -53,7 +55,7 @@ public class EnemyController : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, nextPosition) < 0.5f)
                 {
-                   NextPosition();
+                    NextPosition();
                 }
             }
 
@@ -94,27 +96,35 @@ public class EnemyController : MonoBehaviour
     }
 
     // Moves enemy to nextPosition on list
-    void NextPosition(){
-        if(positions.Count > 0){
+    void NextPosition()
+    {
+        if (positions.Count > 0)
+        {
             // Set next position to move
             nextPosition = positions[posIndex].position;
             agent.SetDestination(nextPosition);
             posIndex++;
 
             // Reverse direction if arrived at last position available
-            if(posIndex > positions.Count-1){
+            if (posIndex > positions.Count - 1)
+            {
                 positions.Reverse();
                 posIndex = 0;
             }
-        }   
+        }
     }
 
     // Tell enemy to chase player
     public void SetChaseTarget()
     {
-        anim.SetBool("DetectionTrigger", true);
-
         alertObject.SetActive(true);
+
+        if (!isAudioPlaying)
+        {
+            detectionSound.Play();
+            isAudioPlaying = true;
+        }
+
         // Stop Enemy movement
         agent.isStopped = true;
         playerDetected = true;
@@ -130,6 +140,7 @@ public class EnemyController : MonoBehaviour
     {
         // Restart player
         playerDetected = false;
+        isAudioPlaying = false;
 
         alertObject.SetActive(false);
         agent.isStopped = false;

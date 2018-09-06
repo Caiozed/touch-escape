@@ -21,6 +21,7 @@ public class MasterManager : MonoBehaviour
     EnemyController[] enemiesControllers;
     [HideInInspector]
     public bool restartTrigger, gameOver;
+    AudioSource audioPlayer;
     // Use this for initialization
     void Start()
     {
@@ -28,6 +29,7 @@ public class MasterManager : MonoBehaviour
         timeToFinish -= 50;
         anim = GetComponent<Animator>();
         enemiesObjects = GameObject.FindGameObjectsWithTag("Enemy");
+        audioPlayer = GetComponent<AudioSource>();
 
         DateTime time = new DateTime((long)Time.fixedTime);
 
@@ -72,15 +74,15 @@ public class MasterManager : MonoBehaviour
         playerController.detected = true;
 
         yield return new WaitForSeconds(1);
-
+    
         for (int i = 0; i < enemiesControllers.Length; i++)
         {
             enemiesControllers[i].Restart();
         }
-
-        fadeImage.CrossFadeAlpha(0, 1.0f, false);
-        restartTrigger = false;
         playerController.Restart();
+        restartTrigger = false;
+        fadeImage.CrossFadeAlpha(0, 1.0f, false);
+
     }
 
     IEnumerator GameOver()
@@ -88,6 +90,7 @@ public class MasterManager : MonoBehaviour
         displayTime.enabled = false;
         gameOver = true;
         cameraShake.ShakeOnce(15, 5, 0, 1);
+        audioPlayer.Play();
         Instantiate(gameOverEffect, player.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(1);
         gameOverText.SetActive(true);
@@ -96,7 +99,7 @@ public class MasterManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        LoadingManager.LoadLevel(LoadingManager.CurrentLevel());
+        GoogleAds.ShowRewardedVideoCurrent();
     }
 
     void DrawBattery()

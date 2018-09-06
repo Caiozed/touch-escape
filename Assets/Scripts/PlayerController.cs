@@ -56,6 +56,7 @@ public class PlayerController : MonoBehaviour
                         if (interactionTrigger.interactionCost <= battery && interactionTrigger.interactable)
                         {
                             interactionTrigger.TriggerEvent.Invoke();
+                            interactionTrigger.target.GetComponent<AudioSource>().Play();
                             battery -= interactionTrigger.interactionCost;
                             interactionTrigger.interactable = false;
                         }
@@ -82,6 +83,7 @@ public class PlayerController : MonoBehaviour
                         if (interactionTrigger.interactionCost <= battery && interactionTrigger.interactable)
                         {
                             interactionTrigger.TriggerEvent.Invoke();
+                            interactionTrigger.target.GetComponent<AudioSource>().Play();
                             battery -= interactionTrigger.interactionCost;
                             interactionTrigger.interactable = false;
                         }

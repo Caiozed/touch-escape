@@ -7,6 +7,8 @@ public class GameEnder : MonoBehaviour
 	public GameObject player;
 	public ParticleSystem engineEffect;
 	public Camera creditsCamera;
+	public MasterManager masterManager;
+	public Canvas  canvasToDisable, canvasToEnable;
     // Use this for initialization
 
     public void EndGame()
@@ -19,14 +21,15 @@ public class GameEnder : MonoBehaviour
 		player.GetComponent<NavMeshAgent>().enabled = false;
 		player.GetComponent<PlayerController>().enabled = false;
 		player.GetComponent<Rigidbody>().isKinematic = true;
+		player.GetComponentInChildren<Light>().enabled = false;
 		GetComponent<Animator>().enabled = true;
-
+		masterManager.minutesToFinish = 100000000000000000;
 	}
 
 	public void ActivateCamera(){
 		creditsCamera.enabled = true;
-			Debug.Log(creditsCamera.enabled);
-
+		canvasToDisable.enabled = false;
+		canvasToEnable.enabled = true;
 		Camera.main.enabled = false;
 	}
 }

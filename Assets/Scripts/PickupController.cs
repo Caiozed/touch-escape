@@ -7,6 +7,7 @@ public class PickupController : MonoBehaviour
 
     PlayerController player;
     public int battery = 1;
+    AudioSource pickupAudio;
     public enum KeyColor
     {
         Red,
@@ -18,6 +19,7 @@ public class PickupController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        pickupAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class PickupController : MonoBehaviour
         if (player.battery < 3)
         {
             player.battery += battery;
-            this.gameObject.SetActive(false);
+            Deactivate();
         }
     }
 
@@ -40,8 +42,18 @@ public class PickupController : MonoBehaviour
     {
         if(!player.keys.Contains(keyColor.ToString())){
             player.keys.Add(keyColor.ToString());
-            this.gameObject.SetActive(false);
-            player.initialPosition = transform.position;
+            Deactivate();
+            //player.initialPosition = transform.position;
         };
+    }
+
+    void Deactivate(){
+        pickupAudio.Play();
+        GetComponent<Collider>().enabled = false;
+        var renderers = GetComponentsInChildren<Renderer>();
+        foreach (var item in renderers)
+        {
+            item.enabled = false;
+        }
     }
 }

@@ -18,6 +18,7 @@ public class InteractTrigger : MonoBehaviour
     public GameObject target;
     public GameObject effect;
     LineRenderer line;
+    AudioSource interactAudio;
     public enum InteractableType
     {
         Console,
@@ -35,6 +36,7 @@ public class InteractTrigger : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         line = GetComponent<LineRenderer>();
+        interactAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -69,7 +71,7 @@ public class InteractTrigger : MonoBehaviour
     public void DeactivateBarrier()
     {
         PlayerController player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-
+        interactAudio.Play();
         if (player.keys.Contains(barrierColor.ToString()))
         {
             target.SetActive(false);
