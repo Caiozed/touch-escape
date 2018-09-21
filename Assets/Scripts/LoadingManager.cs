@@ -20,6 +20,7 @@ public class LoadingManager : MonoBehaviour
     {
         async = SceneManager.LoadSceneAsync(levelToLoad);
         async.allowSceneActivation = false;
+        GoogleAds.ShowRewardedVideo();
     }
 
     // Update is called once per frame
@@ -34,7 +35,7 @@ public class LoadingManager : MonoBehaviour
     public static void LoadLevel(int level)
     {
         levelToLoad = level;
-        Time.timeScale = 1;
+        Time.timeScale = 0;
         SceneManager.LoadSceneAsync(SceneManager.sceneCountInBuildSettings - 1);
     }
 

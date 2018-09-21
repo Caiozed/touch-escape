@@ -24,6 +24,6 @@ public class MenuController : MonoBehaviour {
         fadeImage.color = color;
 		fadeImage.CrossFadeAlpha(255f, 2f, false);
 		yield return new WaitForSeconds(2);
-		GoogleAds.ShowRewardedVideo();
+        LoadingManager.LoadLevel(LoadingManager.CurrentLevel() + 1);
 	}
 }

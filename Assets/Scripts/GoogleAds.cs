@@ -39,7 +39,7 @@ public class GoogleAds : MonoBehaviour
             string adUnitId = "ca-app-pub-7855200918488357/6703994362";
 #endif
 
-        bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Top);
+        bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Bottom);
 
         // Called when an ad request has successfully loaded.
         bannerView.OnAdLoaded += HandleOnAdLoaded;
@@ -101,16 +101,16 @@ public class GoogleAds : MonoBehaviour
     {
         if (result == ShowResult.Finished)
         {
-            LoadingManager.LoadLevel(LoadingManager.CurrentLevel() + 1);
+            Time.timeScale = 1;
             // Reward your player here.
         }
         else if (result == ShowResult.Skipped)
         {
-            ShowRewardedVideo();
+            Time.timeScale = 1;
         }
         else if (result == ShowResult.Failed)
         {
-            LoadingManager.LoadLevel(LoadingManager.CurrentLevel() + 1);
+            Time.timeScale = 1;
         }
     }
 

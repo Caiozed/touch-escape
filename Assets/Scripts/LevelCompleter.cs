@@ -12,6 +12,6 @@ public class LevelCompleter : MonoBehaviour {
 	}
 	public void CompleteLevel(){
 		player.levelFinished = true;
-		GoogleAds.ShowRewardedVideo();
+		LoadingManager.LoadLevel(LoadingManager.CurrentLevel() + 1);
 	}
 }
